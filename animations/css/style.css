@@ -1,0 +1,148 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+  font-family: 'Roboto';
+}
+
+.head,
+.left_arm,
+.torso,
+.right_arm,
+.left_leg,
+.right_leg {
+  background-color: #5f93e8;
+}
+
+.android {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.head {
+  width: 200px;
+  height: 150px;
+  border-radius: 200px 200px 0 0;
+  -webkit-border-radius: 200px 200px 0 0;
+  -moz-border-radius: 200px 200px 0 0;
+  -ms-border-radius: 200px 200px 0 0;
+  -o-border-radius: 200px 200px 0 0;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  -webkit-transition: width 0.5s ease;
+  transition: width 0.5s ease;
+}
+
+.head:hover {
+  width: 300px;
+}
+
+.head .eyes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.head .eyes .left_eye,
+.head .eyes .right_eye {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  position: relative;
+  top: 100px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.head .eyes .left_eye {
+  left: 40px;
+}
+
+.head .eyes .right_eye {
+  left: 120px;
+}
+
+.upper_body {
+  margin: 0 auto;
+  width: 300px;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.upper_body .torso {
+  width: 200px;
+  height: 200px;
+  border-radius: 0 0 50px 50px;
+}
+
+.upper_body .left_arm,
+.upper_body .right_arm {
+  width: 40px;
+  height: 125px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+}
+
+.lower_body {
+  width: 200px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lower_body .left_leg,
+.lower_body .right_leg {
+  width: 40px;
+  height: 120px;
+  border-radius: 0 0 100px 100px;
+}
+
+.lower_body .left_leg {
+  margin-left: 45px;
+}
+
+.lower_body .left_leg:hover {
+  transform: rotate(20deg);
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+}
+
+.lower_body .right_leg {
+  margin-left: 30px;
+}
+/*# sourceMappingURL=style.css.map */
