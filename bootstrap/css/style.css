@@ -1,0 +1,27 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  line-height: 1.5;
+}
+
+.btn-danger {
+  background-color: orange;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #000;
+}
+
+.col {
+  background-color: #ccc;
+  border: 1px solid black;
+}
+/*# sourceMappingURL=style.css.map */
