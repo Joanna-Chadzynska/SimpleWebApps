@@ -1,5 +1,37 @@
 .about__container {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 3em;
+	.about__img,
+	.about__content {
+		width: 100%;
+	}
+
+	@media screen and (min-width: 800px) {
+		flex-direction: row;
+		justify-content: space-between;
+		gap: 2em;
+		.about__img {
+			width: 45%;
+		}
+
+		.about__content {
+			width: 50%;
+		}
+	}
+}
+
+.about__content {
+	display: flex;
+	flex-direction: column;
 	gap: 2em;
+	p {
+		font-size: clamp(0.875rem, 5vw, 0.875rem);
+		text-align: justify;
+	}
+
+	.card__button {
+		align-self: flex-start;
+	}
 }

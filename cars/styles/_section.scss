@@ -1,5 +1,5 @@
 section {
-	padding: 5em 0;
+	padding: 2em 0 6em 0;
 }
 
 .card__button {
@@ -13,12 +13,17 @@ section {
 	font-weight: 500;
 	padding: 0.8em 2em;
 	text-transform: uppercase;
+
+	&:hover {
+		background-color: darken(#f40000, 10%);
+	}
 }
 
 .section__title {
 	text-transform: uppercase;
 	font-size: clamp(2rem, 5vw, 2.5rem);
 	text-align: center;
+	font-weight: 600;
 	margin: 1.5em 0;
 
 	span {

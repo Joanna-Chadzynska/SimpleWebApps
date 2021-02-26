@@ -8,8 +8,9 @@
 
 .services__container {
 	display: grid;
-	gap: 2.2em;
+	gap: 2.3em;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	padding-bottom: 3em;
 }
 
 .services__card {
