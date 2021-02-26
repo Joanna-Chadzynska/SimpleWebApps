@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/style.css" />
+		<title>SitOnChair</title>
+	</head>
+	<body>
+		<!-- HEADER -->
+		<header class="header">
+			<!-- navigation -->
+			<div class="header__nav">
+				<div class="header__nav__container wrapper">
+					<div class="header__nav__logo">
+						<h2 class="nav__logo">sit <strong>on</strong> chair</h2>
+					</div>
+					<nav class="header__nav__menu">
+						<ul class="header__nav__menu__main">
+							<li>
+								<span>O firmie</span>
+								<ul class="header__nav__menu__second">
+									<li><a href="#">Aktualności</a></li>
+									<li><a href="#">Nasz team</a></li>
+									<li><a href="#">Historia</a></li>
+								</ul>
+							</li>
+							<li><a href="#">galeria</a></li>
+							<li><a href="#">kontakt</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+			<!-- banner -->
+			<div class="header__banner__container wrapper">
+				<div class="header__banner__arrow">
+					<img src="./images/arrow_left.png" alt="left arrow" />
+				</div>
+
+				<div class="header__banner__content__container">
+					<img
+						src="./images/black_chair.png"
+						alt="black chair"
+						class="header___banner__content__img"
+					/>
+					<div class="header__banner__content">
+						<h1 class="header__banner__title">
+							sit <strong>on</strong> our <strong>chair</strong>
+						</h1>
+						<p class="header__banner__text">
+							Lorem ipsum dolor sit amet enim. Etiam ullamcorper. Suspendisse a
+							pellentesque dui, non felis. Maecenas malesuada elit lectus felis,
+							malesuada ultricies. Curabitur et ligula. Ut molestie a, ultricies
+							porta urna.
+						</p>
+						<button class="header__banner__button">zobacz więcej</button>
+					</div>
+				</div>
+
+				<div class="header__banner__arrow">
+					<img src="./images/arrow_right.png" alt="right arrow" />
+				</div>
+			</div>
+		</header>
+
+		<!-- GALLERY -->
+		<section class="gallery">
+			<div class="wrapper">
+				<div class="gallery__container">
+					<div class="gallery__img">
+						<img
+							src="./images/box1_img.jpg"
+							alt="chair with yellow roses in vase"
+						/>
+						<div class="gallery__img__title">
+							<h3>chair <span>clair</span></h3>
+						</div>
+					</div>
+					<div class="gallery__img">
+						<img
+							src="./images/box2_img.jpg"
+							alt="chair with yellow roses in vase"
+						/>
+						<div class="gallery__img__title">
+							<h3 class="gallery__title">chair <span>margarita</span></h3>
+						</div>
+					</div>
+					<div class="gallery__description">
+						<h3 class="gallery__title">Finds all inputs</h3>
+						<p class="gallery__description__text">
+							Finds all inputs that are not checked and highlights the next
+							sibling span. Notice there is no change when clicking the
+							checkboxes since no click events have been linked.
+						</p>
+						<p class="gallery__description__text">
+							Notice there is no change when clicking the checkboxes since no
+							click events have been
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- PLANS -->
+		<section class="price-list">
+			<div class="wrapper">
+				<h2 class="section__title">Cennik</h2>
+				<div class="price-list__container">
+					<div class="price-list__card">
+						<h2 class="card__title">basic plan</h2>
+						<div class="card__price">
+							<p>85<sup>99</sup></p>
+							<p>pln/msc</p>
+						</div>
+						<p class="card__feature">Zakup towaru + dowóz</p>
+						<p class="card__feature">Serwis</p>
+						<button class="card__button">dołącz</button>
+					</div>
+					<div class="price-list__card">
+						<h2 class="card__title">standard plan</h2>
+						<div class="card__price">
+							<p>95<sup>99</sup></p>
+							<p>pln/msc</p>
+						</div>
+						<p class="card__feature">Zakup towaru + dowóz</p>
+						<p class="card__feature">Serwis</p>
+						<p class="card__feature">Gwarancja 5 lat</p>
+						<button class="card__button">dołącz</button>
+					</div>
+					<div class="price-list__card">
+						<h2 class="card__title">advanced plan</h2>
+						<div class="card__price">
+							<p>211<sup>00</sup></p>
+							<p>pln/msc</p>
+						</div>
+						<p class="card__feature">Zakup towaru + dowóz</p>
+						<p class="card__feature">Serwis</p>
+						<p class="card__feature">Gwarancja 6 lat</p>
+						<p class="card__feature">Porady projektanta</p>
+						<button class="card__button">dołącz</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CONTACT -->
+		<section class="contact">
+			<div class="wrapper">
+				<h2 class="section__title">Kontakt</h2>
+
+				<form class="contact__container">
+					<fieldset>
+						<input type="text" placeholder="Imię" />
+						<input type="email" name="email" id="email" placeholder="Email" />
+						<textarea
+							name="message"
+							id="message"
+							cols="30"
+							rows="10"
+							placeholder="Wiadomość"
+						></textarea>
+					</fieldset>
+					<div class="contact__form__aside">
+						<img
+							src="./images/red_chair.png"
+							alt="red chair"
+							class="contact__form__img"
+						/>
+						<input type="checkbox" name="rodo" id="rodo" />
+						<label for="rodo">
+							Zgadzam się na przetwarzanie danych osobowych
+						</label>
+						<input type="submit" value="Wyślij" />
+					</div>
+				</form>
+			</div>
+		</section>
+
+		<!-- FOOTER -->
+		<footer class="footer">
+			<div class="wrapper">
+				<div class="footer__container">
+					<div class="footer__copy">
+						<small>&copy; 2021 | All Rights Reserved. - Sit On Chair</small>
+					</div>
+					<div class="footer__socials">
+						<a href="#" class="footer__link">
+							<img
+								src="./images/flickr.png"
+								alt="flickr logo"
+								class="footer__icon"
+							/>
+						</a>
+						<a href="#" class="footer__link">
+							<img
+								src="./images/vimeo.png"
+								alt="vimeo logo"
+								class="footer__icon"
+							/>
+						</a>
+						<a href="#" class="footer__link">
+							<img
+								src="./images/pinterest.png"
+								alt="pinterest logo"
+								class="footer__icon"
+							/>
+						</a>
+						<a href="#!" class="footer__link">
+							<img
+								src="./images/twitter.png"
+								alt="twitter logo"
+								class="footer__icon"
+							/>
+						</a>
+					</div>
+					<p class="footer__logo">sit <strong>on</strong> chair</p>
+				</div>
+			</div>
+		</footer>
+		<script src="./js/app.js"></script>
+	</body>
+</html>

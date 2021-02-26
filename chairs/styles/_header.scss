@@ -1,0 +1,132 @@
+.header {
+	background-image: linear-gradient(
+		0deg,
+		#d0cfd7 0%,
+		#eeeef0 34%,
+		#fafafa 100%
+	);
+
+	.header__nav {
+		background-color: #000;
+		color: #fafafa;
+
+		&__container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1em 0;
+		}
+	}
+}
+
+.header__nav__logo {
+	width: 30%;
+	font-size: clamp(0.875rem, 5vw, 1rem);
+	font-weight: 600;
+	line-height: 21px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	strong {
+		color: $primary-green;
+	}
+}
+
+.header__nav__menu {
+	&__main {
+		display: flex;
+		justify-content: space-between;
+		text-transform: uppercase;
+		& > li + li {
+			padding-left: 3em;
+		}
+
+		li a,
+		li span {
+			cursor: pointer;
+			font-size: clamp(0.875rem, 5vw, 1rem);
+			font-weight: 700;
+			line-height: 21px;
+			letter-spacing: 1px;
+		}
+
+		li:nth-child(1) {
+			position: relative;
+			.header__nav__menu__second {
+				display: none;
+			}
+
+			&:hover {
+				.header__nav__menu__second {
+					position: absolute;
+					display: flex;
+				}
+			}
+		}
+	}
+
+	&__second {
+		flex-direction: column;
+		background: #000;
+		top: 1rem;
+		& > li {
+			padding: 1em;
+			a {
+				text-transform: none;
+				font-weight: 500;
+			}
+		}
+	}
+}
+
+.header__banner__container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 50vh;
+	width: 100%;
+}
+
+.header__banner__content__container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1em;
+}
+
+.header__banner__content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2em;
+
+	.header__banner__text {
+		max-width: 45ch;
+		text-align: center;
+	}
+
+	.header__banner__title {
+		font-size: clamp(2rem, 5vw, 2.5rem);
+		text-transform: uppercase;
+		font-weight: 500;
+		strong {
+			color: $primary-green;
+		}
+	}
+
+	.header__banner__button {
+		background-color: $primary-green;
+		border: none;
+		border-radius: 20px;
+		color: #fafafa;
+		font-size: clamp(1rem, 5vw, 1.25rem);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1em 2em;
+		text-transform: uppercase;
+		-webkit-border-radius: 20px;
+		-moz-border-radius: 20px;
+		-ms-border-radius: 20px;
+		-o-border-radius: 20px;
+	}
+}
