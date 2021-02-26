@@ -1,0 +1,36 @@
+@import './reset';
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	line-height: 1.5;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+.wrapper {
+	max-width: 960px;
+	padding: 0 10px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+img {
+	max-width: 100%;
+}
+
+@import './header';
+@import './section';
+@import './features';
+@import './services';
+@import './about';
+@import './footer';

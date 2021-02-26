@@ -1,0 +1,24 @@
+.features__container {
+	display: grid;
+	gap: 2em;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.features__card {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+
+	&__subtitle {
+		text-transform: uppercase;
+		font-size: clamp(1.1rem, 5vw, 1.25rem);
+	}
+
+	&__text {
+		color: rgb(61, 60, 60);
+	}
+
+	.card__button {
+		align-self: flex-start;
+	}
+}

@@ -1,0 +1,12 @@
+.footer {
+	background-color: rgb(39, 38, 38);
+	padding: 3em 0;
+	a {
+		color: #fff;
+		text-transform: uppercase;
+	}
+
+	&__copy {
+		color: #aaa;
+	}
+}

@@ -1,0 +1,40 @@
+.services {
+	background-color: rgb(39, 38, 38);
+
+	.section__title {
+		color: #fff;
+	}
+}
+
+.services__container {
+	display: grid;
+	gap: 2.2em;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.services__card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2em;
+	color: #fff;
+
+	&__img {
+		border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		-ms-border-radius: 50%;
+		-o-border-radius: 50%;
+		overflow: hidden;
+	}
+
+	&__subtitle {
+		text-transform: uppercase;
+		font-size: clamp(1.1rem, 5vw, 1.25rem);
+	}
+
+	&__text {
+		color: #aaa;
+		text-align: center;
+	}
+}

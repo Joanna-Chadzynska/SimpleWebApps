@@ -1,0 +1,27 @@
+section {
+	padding: 5em 0;
+}
+
+.card__button {
+	border: none;
+	border-radius: 50px;
+	background-color: #f40000;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 500;
+	padding: 0.8em 2em;
+	text-transform: uppercase;
+}
+
+.section__title {
+	text-transform: uppercase;
+	font-size: clamp(2rem, 5vw, 2.5rem);
+	text-align: center;
+	margin: 1.5em 0;
+
+	span {
+		color: #f40000;
+	}
+}
