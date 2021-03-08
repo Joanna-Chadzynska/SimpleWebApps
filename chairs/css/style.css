@@ -364,6 +364,7 @@ body {
   border: none;
   border-radius: 20px;
   color: #fafafa;
+  cursor: pointer;
   font-size: clamp(1rem, 5vw, 1.25rem);
   display: -webkit-box;
   display: -ms-flexbox;
