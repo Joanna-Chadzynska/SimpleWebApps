@@ -1,0 +1,122 @@
+.price-list {
+	background-color: #f1f1f1;
+	padding: 2em 0;
+
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1.5em;
+		padding: 2em 0;
+	}
+}
+
+.price-list__card {
+	border: 2px solid #ddd;
+	background-color: #f9f9f9;
+	display: grid;
+	grid-template-rows: auto auto 1fr auto;
+	text-align: center;
+
+	.card__title {
+		text-transform: uppercase;
+		font-weight: 500;
+		font-size: clamp(1.2rem, 5vw, 1.45rem);
+		margin-top: 1.25em;
+		color: $primary-green;
+	}
+
+	.card__price {
+		margin: 1.25em 0;
+		border-radius: 50%;
+		border: 2px solid #ddd;
+		width: 170px;
+		height: 170px;
+		justify-self: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		font-weight: 700;
+		color: #bfbfbf;
+
+		p {
+			display: block;
+			font-size: clamp(1rem, 5vw, 1.25rem);
+			line-height: 1.4;
+
+			&:nth-of-type(1) {
+				font-size: 3rem;
+				position: relative;
+				sup {
+					font-size: 1rem;
+					position: absolute;
+					top: 30%;
+				}
+			}
+
+			&:nth-of-type(2) {
+				text-transform: uppercase;
+				font-weight: 600;
+			}
+		}
+	}
+
+	.card__button {
+		font-size: 1rem;
+		justify-self: center;
+		padding: 0.875em 1.5em;
+		margin: 2em 0 1em 0;
+		text-transform: uppercase;
+		border: none;
+		border-radius: 10px;
+		background-color: $primary-green;
+		color: #f1f1f1;
+	}
+
+	.card__features__container {
+		font-size: clamp(1.25rem, 5vw, 1.35rem);
+		color: rgb(145, 144, 144);
+		.card__feature {
+			padding: 10px 0;
+			&:nth-child(odd) {
+				background-color: #e4e4e4;
+			}
+			&:nth-child(even) {
+				background-color: #f1f1f1;
+			}
+		}
+	}
+}
+
+.price-list__card:nth-child(2) {
+	background-color: $primary-green;
+	border-color: $primary-green;
+	.card__title {
+		color: #f1f1f1;
+	}
+
+	.card__price {
+		border-color: #f1f1f1;
+		background-color: #f1f1f1;
+		color: $primary-green;
+	}
+
+	.card__button {
+		background-color: #fff;
+		color: $primary-green;
+	}
+
+	.card__features__container {
+		font-size: clamp(1.25rem, 5vw, 1.35rem);
+		color: rgb(145, 144, 144);
+		.card__feature {
+			padding: 6px 0;
+			&:nth-child(odd) {
+				background-color: #ffffff;
+			}
+			&:nth-child(even) {
+				background-color: #f1f1f1;
+			}
+		}
+	}
+}

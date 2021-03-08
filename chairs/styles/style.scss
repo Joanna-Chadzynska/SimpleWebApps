@@ -19,4 +19,22 @@ body {
 	margin: 0 auto;
 }
 
+.section__title {
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: clamp(1.25rem, 5vw, 1.5rem);
+	position: relative;
+	&::after {
+		content: '';
+		display: block;
+		width: 12em;
+		height: 10px;
+		background-color: $primary-green;
+	}
+}
+
 @import './header';
+@import './gallery';
+@import './plans';
+@import './contact';
+@import './footer';
