@@ -1,0 +1,25 @@
+.header {
+	display: flex;
+	flex-wrap: wrap;
+
+	.logo {
+		flex-basis: 200px;
+		background-color: cadetblue;
+		// height: 80px;
+	}
+
+	.search {
+		background-color: rgb(71, 43, 43);
+		flex-grow: 1;
+	}
+
+	.settings {
+		background-color: rgb(172, 14, 14);
+		padding: 0 50px;
+	}
+
+	.menu {
+		flex-basis: 100%;
+		background-color: yellow;
+	}
+}

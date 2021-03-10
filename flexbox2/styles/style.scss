@@ -1,0 +1,36 @@
+$main-color: #8daae5;
+$default-font: 'Poppins', sans-serif;
+$special-font: 'PT Sans', 'Roboto', 'Arial', sans-serif;
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $main-color;
+	line-height: 1.5;
+	font-family: $default-font;
+	font-size: 10px;
+	color: #fff;
+}
+
+.wrapper {
+	background-color: #fff;
+	box-shadow: 0 0 4px 0 #000;
+	display: flex;
+	flex-direction: column;
+	font-size: 2rem;
+	flex-wrap: wrap;
+	max-width: 1000px;
+	margin: 0 auto;
+	min-height: 100vh;
+}
+
+@import './header';
+@import './main-articles';
+@import './articles-list';
+@import './footer';

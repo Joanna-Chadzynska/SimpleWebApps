@@ -1,0 +1,93 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #8daae5;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  color: #fff;
+}
+
+.wrapper {
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 4px 0 #000;
+          box-shadow: 0 0 4px 0 #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 2rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.header .logo {
+  -ms-flex-preferred-size: 200px;
+      flex-basis: 200px;
+  background-color: cadetblue;
+}
+
+.header .search {
+  background-color: #472b2b;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.header .settings {
+  background-color: #ac0e0e;
+  padding: 0 50px;
+}
+
+.header .menu {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  background-color: yellow;
+}
+
+.main-articles {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  min-height: 600px;
+  background-color: blue;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.article-list {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  background-color: orange;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.footer {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  background-color: lightblue;
+}
+/*# sourceMappingURL=style.css.map */
