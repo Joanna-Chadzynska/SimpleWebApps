@@ -1,0 +1,42 @@
+
+
+GET  http://localhost:3000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwiaWF0IjoxNjE2NDMyNTM4LCJleHAiOjE2MTY0MzI1NTh9.nnXffAdS75Pv4vZYaK-Kl4FfFrQhNZ1QsknulJ34Z6k
+
+### check users
+GET http://localhost:4000/api/users
+
+### create user
+POST  http://localhost:4000/api/users
+Content-Type: application/json
+
+{
+    "name": "Jim",
+    "password": "12345"
+}
+
+###
+
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+    "name": "Jim",
+    "password": "12345"
+}
+
+###
+POST  http://localhost:4000/api/auth/refresh
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwicGFzc3dvcmQiOiIkMmIkMTAkM1gxRi9QMjRoa1RkRlo2TGZyeUVQTzRVMVpIeW9CRGgwMHhtYkQ0UEd3em1WRzFmM2RkRFMiLCJpYXQiOjE2MTY0MzU5ODZ9.O_Hm5-LIw2B10UJ9xeSkJyzDOB_nfxYC8lGqeud6DyU"
+}
+###
+DELETE http://localhost:4000/api/auth/logout
+Content-Type: application/json
+
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwiaWF0IjoxNjE2NDMyNTM4fQ.mfJxXc8nxlhgBUgszk8WEzsZrII9Ozw4EtaRDf5hGhA"
+}
+
