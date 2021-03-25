@@ -6,9 +6,9 @@ POST  http://localhost:4000/api/auth/signup
 Content-Type: application/json
 
 {
-    "email": "assas",
-    "password": "",
-    "name": ""
+    "email": "test@gmail.com",
+    "password": "sfasfdfdsa",
+    "name": "Jolo"
 }
 
 ### Login 

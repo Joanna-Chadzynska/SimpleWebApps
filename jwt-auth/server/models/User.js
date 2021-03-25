@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
 import validator from 'validator';
 
@@ -22,6 +23,20 @@ const UserSchema = new mongoose.Schema({
 		type: Date,
 		default: Date.now,
 	},
+});
+
+// fire a function after doc saved to db
+// UserSchema.post('save', function (doc, next) {
+// 	console.log('New user was created & saved', doc);
+// 	next();
+// });
+
+// fire a function before doc saved to db
+UserSchema.pre('save', async function (next) {
+	// console.log('User about to be created & saved', this);
+	const salt = await bcrypt.genSalt(10);
+	this.password = await bcrypt.hash(this.password, salt);
+	next();
 });
 
 const User = mongoose.model('user', UserSchema);
