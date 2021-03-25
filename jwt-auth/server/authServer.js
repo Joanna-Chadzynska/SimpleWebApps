@@ -3,10 +3,11 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const app = express();
 
+// middlewares
 app.use(express.json());
 
 // app.use(cookieParser());
@@ -16,11 +17,15 @@ const users = [];
 
 let refreshTokens = [];
 
-app.get('/api/users', (req, res) => {
+// sign up page
+
+app.get('/api/signup', (req, res) => {
 	res.json(users);
 });
 
-app.post('/api/users', async (req, res) => {
+// create a new user in db
+
+app.post('/api/signup', async (req, res) => {
 	try {
 		const salt = await bcrypt.genSalt();
 		const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -30,12 +35,15 @@ app.post('/api/users', async (req, res) => {
 		};
 		users.push(user);
 		res.status(201).send();
-	} catch {
+	} catch (err) {
 		res.status(500).send();
 	}
 });
 
+// authenticate a current user
+
 app.post('/api/auth/login', async (req, res) => {
+	const { name, password } = req.body;
 	// // res.cookie('JWT', accessToken, {
 	// // 	maxAge: 86400000,
 	// // 	httpOnly: true,
@@ -45,34 +53,40 @@ app.post('/api/auth/login', async (req, res) => {
 	// // 	maxAge: 86400000,
 	// // 	httpOnly: true,
 	// // });
-	const user = users.find((user) => user.name === req.body.name);
+	const user = users.find((user) => user.name === name);
 
 	if (user === null) {
 		return res.status(400).send('Cannot find user');
 	}
 
 	try {
-		const validPassword = await bcrypt.compare(
-			req.body.password,
-			user.password
-		);
+		const validPassword = await bcrypt.compare(password, user.password);
 		if (validPassword) {
 			const accessToken = generateAccessToken(user);
 			const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
 			refreshTokens.push(refreshToken);
 			res.json({ accessToken, refreshToken });
+		} else {
+			res.send('Username or password are incorrect');
 		}
-	} catch {
+	} catch (err) {
 		res.status(500).send();
 	}
 });
+
+// log in page
+app.get('/api/auth/login', (req, res) => {
+	res.send('login page');
+});
+
+// refresh current user session
 
 app.post('/api/auth/refresh', (req, res) => {
 	// // TODO: Check if refresh token exists in DB
 
 	const refreshToken = req.body.token;
 
-	if (refreshToken === null) return res.sendStatus(401);
+	if (!refreshToken) return res.sendStatus(401);
 
 	if (!refreshTokens.includes(refreshToken)) return res.sendStatus(403);
 
@@ -83,9 +97,13 @@ app.post('/api/auth/refresh', (req, res) => {
 	});
 });
 
-app.delete('/api/auth/logout', (req, res) => {
+// app.delete('/api/auth/logout', (req, res) => {
+// 	refreshTokens = refreshTokens.filter((token) => token !== req.body.token);
+// 	res.sendStatus(204).send('Logout successful');
+// });
+app.post('/api/auth/logout', (req, res) => {
 	refreshTokens = refreshTokens.filter((token) => token !== req.body.token);
-	res.sendStatus(204);
+	res.sendStatus(204).send('Logout successful');
 });
 
 function generateAccessToken(payload) {

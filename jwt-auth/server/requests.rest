@@ -1,22 +1,17 @@
+### check user details
+GET http://localhost:4000/api/auth/user
 
-
-GET  http://localhost:3000/api/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwiaWF0IjoxNjE2NDMyNTM4LCJleHAiOjE2MTY0MzI1NTh9.nnXffAdS75Pv4vZYaK-Kl4FfFrQhNZ1QsknulJ34Z6k
-
-### check users
-GET http://localhost:4000/api/users
-
-### create user
-POST  http://localhost:4000/api/users
+### Register new user
+POST  http://localhost:4000/api/auth/signup
 Content-Type: application/json
 
 {
-    "name": "Jim",
-    "password": "12345"
+    "email": "assas",
+    "password": "",
+    "name": ""
 }
 
-###
-
+### Login 
 POST http://localhost:4000/api/auth/login
 Content-Type: application/json
 
@@ -25,14 +20,14 @@ Content-Type: application/json
     "password": "12345"
 }
 
-###
-POST  http://localhost:4000/api/auth/refresh
+### Refresh Token
+POST  http://localhost:4000/api/auth/token
 Content-Type: application/json
 
 {
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwicGFzc3dvcmQiOiIkMmIkMTAkM1gxRi9QMjRoa1RkRlo2TGZyeUVQTzRVMVpIeW9CRGgwMHhtYkQ0UEd3em1WRzFmM2RkRFMiLCJpYXQiOjE2MTY0MzU5ODZ9.O_Hm5-LIw2B10UJ9xeSkJyzDOB_nfxYC8lGqeud6DyU"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwicGFzc3dvcmQiOiIkMmIkMTAkRE9MTjA3SFlRU0RxV2d3Q2dMUGVoLldudko2TTdmZDBVdmFaL1JiZlB2Tm5BYnd6VE1vbE8iLCJpYXQiOjE2MTY2Nzc2ODR9.DbMVSK3xwTUWr1RgMg3vM-89vAO559V838lp2w4Iv-4"
 }
-###
+### Logout
 DELETE http://localhost:4000/api/auth/logout
 Content-Type: application/json
 
@@ -40,3 +35,9 @@ Content-Type: application/json
     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwiaWF0IjoxNjE2NDMyNTM4fQ.mfJxXc8nxlhgBUgszk8WEzsZrII9Ozw4EtaRDf5hGhA"
 }
 
+###
+
+GET  http://localhost:3000/api/posts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSmltIiwiaWF0IjoxNjE2NDMyNTM4LCJleHAiOjE2MTY0MzI1NTh9.nnXffAdS75Pv4vZYaK-Kl4FfFrQhNZ1QsknulJ34Z6k
+
+###
