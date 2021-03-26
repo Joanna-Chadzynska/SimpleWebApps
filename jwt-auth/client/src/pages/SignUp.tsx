@@ -17,7 +17,11 @@ const SignUp: React.SFC<SignUpProps> = () => {
 		password: '',
 	});
 
-	const [errors, setErrors] = useState({});
+	const [errors, setErrors] = useState({
+		email: '',
+		password: '',
+		name: '',
+	});
 
 	const register = async (user: User) => {
 		const config = {
@@ -36,7 +40,13 @@ const SignUp: React.SFC<SignUpProps> = () => {
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		setErrors({ email: '', password: '', name: '' });
 		register(newUser);
+		setNewUser({
+			name: '',
+			email: '',
+			password: '',
+		});
 	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,6 +72,7 @@ const SignUp: React.SFC<SignUpProps> = () => {
 						onChange={handleChange}
 						placeholder='Enter username'
 					/>
+					{errors?.name && <Form.Text muted>{errors.name}</Form.Text>}
 				</Form.Group>
 				<Form.Group controlId='formBasicEmail'>
 					<Form.Label>Email address</Form.Label>
@@ -72,9 +83,7 @@ const SignUp: React.SFC<SignUpProps> = () => {
 						onChange={handleChange}
 						placeholder='Enter email'
 					/>
-					<Form.Text className='text-muted'>
-						We'll never share your email with anyone else.
-					</Form.Text>
+					{errors?.email && <Form.Text muted>{errors.email}</Form.Text>}
 				</Form.Group>
 
 				<Form.Group controlId='formBasicPassword'>
@@ -86,6 +95,7 @@ const SignUp: React.SFC<SignUpProps> = () => {
 						onChange={handleChange}
 						placeholder='Password'
 					/>
+					{errors?.password && <Form.Text muted>{errors.password}</Form.Text>}
 				</Form.Group>
 				<Form.Group controlId='formBasicCheckbox'>
 					<Form.Check type='checkbox' label='Check me out' />
