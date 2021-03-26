@@ -15,10 +15,9 @@ const app = express();
 app.use(express.json());
 // CORS Middleware
 app.use(cors());
+// cookie middleware
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-// Body parser Middleware
-// app.use(bodyParser.json());
 
 // DB config
 const dbURI = `${process.env.MONGO_URI}/${process.env.MONGO_DB_NAME}`;
