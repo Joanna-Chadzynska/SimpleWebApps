@@ -9,7 +9,7 @@ export type User = {
 };
 
 const SignIn: React.SFC<SignInProps> = () => {
-	const [user, setCurrentUser] = useState({
+	const [user, setLoggedUser] = useState({
 		email: '',
 		password: '',
 	});
@@ -27,6 +27,7 @@ const SignIn: React.SFC<SignInProps> = () => {
 		};
 		try {
 			const resp = (await axios.post('/api/auth/login', user, config)).data;
+			console.log(resp);
 
 			return resp;
 		} catch (error) {
@@ -38,7 +39,7 @@ const SignIn: React.SFC<SignInProps> = () => {
 		e.preventDefault();
 		setErrors({ email: '', password: '' });
 		login(user);
-		setCurrentUser({
+		setLoggedUser({
 			email: '',
 			password: '',
 		});
@@ -46,7 +47,7 @@ const SignIn: React.SFC<SignInProps> = () => {
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
-		setCurrentUser({
+		setLoggedUser({
 			...user,
 			[name]: value,
 		});
@@ -54,7 +55,7 @@ const SignIn: React.SFC<SignInProps> = () => {
 
 	return (
 		<Container>
-			<h2>Sign Up</h2>
+			<h2>Sign In</h2>
 			<Form onSubmit={handleSubmit} noValidate>
 				<Form.Group controlId='formBasicEmail'>
 					<Form.Label>Email address</Form.Label>

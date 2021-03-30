@@ -27,9 +27,8 @@ const NavbarContainer: React.SFC<NavbarContainerProps> = () => {
 				</Nav> */}
 				<Nav>
 					<NavLink to='/signin'>Sign in</NavLink>
-
+					&nbsp; &nbsp; &nbsp;
 					<NavLink to='/signup'>Sign up</NavLink>
-
 					{/* <Navbar.Collapse className='justify-content-end'>
 						<Navbar.Text>
 							Signed in as: <a href='#login'>Mark Otto</a>
