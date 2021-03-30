@@ -81,7 +81,7 @@ export const signup_post = async (req, res) => {
 			accessToken,
 		});
 
-		console.log(user);
+		res.status(201).send({ user: user._id, accessToken, refreshToken });
 	} catch (error) {
 		const errors = handleErrors(error);
 		res.status(400).send(errors);
@@ -114,11 +114,7 @@ export const login_post = async (req, res) => {
 			maxAge: 267840000,
 		});
 
-		res.status(201).json({
-			user: user._id,
-			accessToken,
-		});
-		res.status(200).json({ user: user._id });
+		res.status(201).send({ user: user._id, accessToken, refreshToken });
 	} catch (error) {
 		const errors = handleErrors(error);
 		res.status(400).send(errors);

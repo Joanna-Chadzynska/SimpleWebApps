@@ -1,5 +1,6 @@
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import csrf from 'csurf';
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
@@ -18,7 +19,11 @@ app.use(cors());
 // cookie middleware
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-
+// CSRF protection middleware
+const csrfProtection = csrf({
+	cookie: true,
+});
+app.use(csrfProtection);
 // DB config
 const dbURI = `${process.env.MONGO_URI}/${process.env.MONGO_DB_NAME}`;
 
@@ -34,6 +39,9 @@ mongoose
 
 // Use routes
 app.get('/', (req, res) => res.send('home'));
+app.get('/csrf-token', (req, res) => {
+	res.json({ csrfToken: req.csrfToken() });
+});
 app.use('/api/auth', authRoutes);
 app.use('/api/posts', postsRoutes);
 

@@ -1,8 +1,9 @@
 import { Router } from 'express';
 import { posts_get } from '../controllers/postsController.js';
+import requireAuth from '../middleware/authMiddleware.js';
 const router = Router();
 
-router.get('/api/posts', posts_get);
+router.get('/', requireAuth, posts_get);
 // app.get('/api/posts', authenticateToken, (req, res) => {
 // 	res.send(posts);
 // });
