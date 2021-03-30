@@ -25,7 +25,7 @@ app.get('/api/signup', (req, res) => {
 
 // create a new user in db
 
-app.post('/api/signup', async (req, res) => {
+app.post('/signup', async (req, res) => {
 	try {
 		const salt = await bcrypt.genSalt();
 		const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -42,7 +42,7 @@ app.post('/api/signup', async (req, res) => {
 
 // authenticate a current user
 
-app.post('/api/auth/login', async (req, res) => {
+app.post('/login', async (req, res) => {
 	const { name, password } = req.body;
 	// // res.cookie('JWT', accessToken, {
 	// // 	maxAge: 86400000,

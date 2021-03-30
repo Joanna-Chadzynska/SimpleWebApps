@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 
 export interface SignUpProps {}
 
@@ -57,10 +57,8 @@ const SignUp: React.SFC<SignUpProps> = () => {
 		});
 	};
 
-	console.log(errors);
-
 	return (
-		<>
+		<Container>
 			<h2>Sign Up</h2>
 			<Form onSubmit={handleSubmit} noValidate>
 				<Form.Group controlId='formBasicEmail'>
@@ -104,7 +102,7 @@ const SignUp: React.SFC<SignUpProps> = () => {
 					Submit
 				</Button>
 			</Form>
-		</>
+		</Container>
 	);
 };
 

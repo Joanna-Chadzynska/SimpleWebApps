@@ -7,18 +7,18 @@ const handleErrors = (err) => {
 	let errors = { email: '', password: '' };
 
 	// incorrect email
-	if (err.message === 'incorrect email') {
+	if (err.message === 'Incorrect email') {
 		errors.email = 'That email is not registered';
 	}
 
 	// incorrect password
-	if (err.message === 'incorrect password') {
+	if (err.message === 'Incorrect password') {
 		errors.password = 'That password is incorrect';
 	}
 
 	// duplicate email error
 	if (err.code === 11000) {
-		errors.email = 'that email is already registered';
+		errors.email = 'That email is already registered';
 		return errors;
 	}
 
@@ -70,6 +70,7 @@ export const signup_post = async (req, res) => {
 			httpOnly: true,
 			maxAge: 259200000,
 		});
+
 		res.cookie('refresh_token', refreshToken, {
 			httpOnly: true,
 			maxAge: 267840000,
@@ -79,6 +80,8 @@ export const signup_post = async (req, res) => {
 			user: user._id,
 			accessToken,
 		});
+
+		console.log(user);
 	} catch (error) {
 		const errors = handleErrors(error);
 		res.status(400).send(errors);
@@ -93,7 +96,33 @@ export const signup_post = async (req, res) => {
 
 export const login_post = async (req, res) => {
 	const { email, password } = req.body;
-	res.send('User login');
+	try {
+		const user = await User.login(email, password);
+		const accessToken = generateAccessToken({ id: user._id });
+		const refreshToken = jwt.sign(
+			{ id: user._id },
+			process.env.JWT_REFRESH_TOKEN_SECRET
+		);
+
+		res.cookie('access_token', accessToken, {
+			httpOnly: true,
+			maxAge: 259200000,
+		});
+
+		res.cookie('refresh_token', refreshToken, {
+			httpOnly: true,
+			maxAge: 267840000,
+		});
+
+		res.status(201).json({
+			user: user._id,
+			accessToken,
+		});
+		res.status(200).json({ user: user._id });
+	} catch (error) {
+		const errors = handleErrors(error);
+		res.status(400).send(errors);
+	}
 };
 
 export const logout_post = (req, res) => {
