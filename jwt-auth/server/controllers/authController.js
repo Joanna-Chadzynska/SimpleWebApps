@@ -121,8 +121,10 @@ export const login_post = async (req, res) => {
 	}
 };
 
-export const logout_post = (req, res) => {
-	res.send('User logout');
+export const logout_get = (req, res) => {
+	res.cookie('access_token', '', { maxAge: 1 });
+	res.cookie('refresh_token', '', { maxAge: 1 });
+	res.status(204).json('Logout successful');
 };
 
 export const token_post = async (req, res) => {
