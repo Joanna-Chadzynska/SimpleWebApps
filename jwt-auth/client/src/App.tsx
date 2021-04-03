@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { Navbar } from './components';
-import { Landing, SignIn, SignUp } from './pages';
+import { Home, Landing, SignIn, SignUp } from './pages';
+import { IsUserRedirect, PrivateRoute } from './routing/PrivateRoute';
 
 function App() {
 	useEffect(() => {
@@ -20,15 +21,18 @@ function App() {
 				<Router>
 					<Navbar />
 					<Switch>
-						<Route exact path='/'>
+						<IsUserRedirect exact path='/' loggedInPath='/home'>
 							<Landing />
-						</Route>
-						<Route exact path='/signup'>
+						</IsUserRedirect>
+						<PrivateRoute path='/home'>
+							<Home />
+						</PrivateRoute>
+						<IsUserRedirect exact path='/signup' loggedInPath='/home'>
 							<SignUp />
-						</Route>
-						<Route exact path='/signin'>
+						</IsUserRedirect>
+						<IsUserRedirect exact path='/signin' loggedInPath='/home'>
 							<SignIn />
-						</Route>
+						</IsUserRedirect>
 					</Switch>
 				</Router>
 			</Container>
