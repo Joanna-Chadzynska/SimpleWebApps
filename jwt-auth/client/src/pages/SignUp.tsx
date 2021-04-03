@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 
 export interface SignUpProps {}
 
@@ -11,6 +12,7 @@ export type User = {
 };
 
 const SignUp: React.SFC<SignUpProps> = () => {
+	const history = useHistory();
 	const [newUser, setNewUser] = useState({
 		name: '',
 		email: '',
@@ -31,7 +33,8 @@ const SignUp: React.SFC<SignUpProps> = () => {
 		};
 		try {
 			const resp = (await axios.post('/api/auth/signup', user, config)).data;
-
+			localStorage.setItem('currentUser', JSON.stringify(resp));
+			history.push('/home');
 			return resp;
 		} catch (error) {
 			setErrors(error.response.data);
