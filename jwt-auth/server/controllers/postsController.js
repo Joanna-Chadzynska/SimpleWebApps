@@ -10,5 +10,5 @@ const posts = [
 ];
 
 export const posts_get = (req, res) => {
-	res.send('get posts');
+	res.json(posts);
 };
