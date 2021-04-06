@@ -127,14 +127,35 @@ export const logout_get = (req, res) => {
 	res.status(204).json('Logout successful');
 };
 
-export const token_post = async (req, res) => {
-	res.send('refresh token');
-	try {
-		const { refreshToken } = req.body;
-	} catch (error) {
-		console.error(error);
-		return res.status(500).json({ error: 'Internal Server Error!' });
-	}
+export const refresh_token = async (req, res) => {
+	console.log(req);
+	// try {
+	// 	if (!refreshToken) return res.sendStatus(401);
+
+	// 	jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
+	// 		if (err) return res.sendStatus(403);
+	// 		const accessToken = generateAccessToken({ id: user._id });
+	// 		const refreshToken = jwt.sign(
+	// 			{ id: user._id },
+	// 			process.env.JWT_REFRESH_TOKEN_SECRET
+	// 		);
+
+	// 		res.cookie('access_token', accessToken, {
+	// 			httpOnly: true,
+	// 			maxAge: 259200000,
+	// 		});
+
+	// 		res.cookie('refresh_token', refreshToken, {
+	// 			httpOnly: true,
+	// 			maxAge: 267840000,
+	// 		});
+
+	// 		res.status(201).send({ user: user._id, accessToken, refreshToken });
+	// 	});
+	// } catch (error) {
+	// 	const errors = handleErrors(error);
+	// 	res.status(400).send(errors);
+	// }
 };
 
 /**
