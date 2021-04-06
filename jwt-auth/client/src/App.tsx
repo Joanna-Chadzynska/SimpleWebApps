@@ -9,12 +9,19 @@ import { IsUserRedirect, PrivateRoute } from './routing/PrivateRoute';
 function App() {
 	useEffect(() => {
 		const getCsrfToken = async () => {
-			const { data } = await axios.get('/csrf-token');
+			const { data } = await axios.get('/api/auth/csrf-token');
 			axios.defaults.headers.post['X-CSRF-Token'] = data.csrfToken;
 		};
 		getCsrfToken();
+		// const refreshToken = async () => {
+		// 	const { data } = await axios.post('/api/auth/refresh-token');
+		// 	// setAccessToken(data.accessToken);
+		// };
+		// refreshToken();
+
 		return () => {};
 	}, []);
+
 	return (
 		<div style={{ maxWidth: 960, margin: '0 auto' }}>
 			<Container fluid>
