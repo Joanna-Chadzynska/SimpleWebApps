@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Redirect, Route } from 'react-router-dom';
+import { getAccessToken } from './../accessToken';
 
 export interface PrivateRouteProps {
 	path: string;
@@ -45,6 +46,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
 	...rest
 }: any) => {
 	const currentUser = localStorage.getItem('currentUser');
+	const accessToken = getAccessToken();
 	return (
 		<Route
 			{...rest}
