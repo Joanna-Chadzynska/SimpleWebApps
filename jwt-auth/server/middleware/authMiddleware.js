@@ -14,4 +14,24 @@ const requireAuth = (req, res, next) => {
 	}
 };
 
+// check current user
+const checkUser = (req, res, next) => {
+	const token = req.cookies.access_token;
+	if (token) {
+		jwt.verify(
+			token,
+			process.env.JWT_TOKEN_SECRET,
+			async (err, decodedToken) => {
+				if (err) {
+					res.locals.user = null;
+					next();
+				}
+				let user = await User.findByIt(decodedToken.id);
+				res.locals.user = user;
+				next();
+			}
+		);
+	}
+};
+
 export default requireAuth;

@@ -38,8 +38,9 @@ mongoose
 	.catch((err) => console.log(err));
 
 // Use routes
+// app.get('*', checkUser)
 app.get('/', (req, res) => res.send('home'));
-app.get('/csrf-token', (req, res) => {
+app.get('/api/auth/csrf-token', (req, res) => {
 	res.json({ csrfToken: req.csrfToken() });
 });
 app.use('/api/auth', authRoutes);
