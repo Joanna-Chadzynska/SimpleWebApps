@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { useHistory } from 'react-router';
+import { setAccessToken } from '../accessToken';
 
 export interface SignInProps {}
 export type User = {
@@ -29,8 +30,8 @@ const SignIn: React.SFC<SignInProps> = () => {
 		};
 		try {
 			const resp = (await axios.post('/api/auth/login', user, config)).data;
-
-			localStorage.setItem('currentUser', JSON.stringify(resp));
+			setAccessToken(resp.accessToken);
+			localStorage.setItem('currentUser', JSON.stringify(resp.user));
 			window.location.reload();
 			history.push('/home');
 			return resp;
