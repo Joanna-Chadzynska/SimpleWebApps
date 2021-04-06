@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Button, Nav, Navbar } from 'react-bootstrap';
 import { NavLink, useHistory } from 'react-router-dom';
+import { setAccessToken } from '../accessToken';
 
 export interface NavbarContainerProps {}
 
@@ -11,6 +12,7 @@ const NavbarContainer: React.SFC<NavbarContainerProps> = () => {
 
 	const logout = async () => {
 		const resp = await axios.get('/api/auth/logout');
+		setAccessToken('');
 		localStorage.removeItem('currentUser');
 		window.location.reload();
 		history.push('/');
