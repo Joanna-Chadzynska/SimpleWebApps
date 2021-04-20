@@ -5,16 +5,17 @@
 	"main": "server.js",
 	"type": "module",
 	"scripts": {
-		"devStart": "nodemon server.js",
-		"server": "nodemon server.js --exec babel-node --presets babel-preset-env ",
-		"devStartAuth": "nodemon authServer.js"
+		"authServer": "nodemon authServer.js --exec babel-node --presets babel-preset-env ",
+		"devServer": "nodemon devServer.js --exec babel-node --presets babel-preset-env --port 4008",
+		"server": "concurrently \"npm run authServer\" \"npm run devServer\""
 	},
 	"keywords": [],
-	"author": " <Your Name> (example.com)",
+	"author": "Joanna Chądzyńska",
 	"license": "MIT",
 	"dependencies": {
 		"bcrypt": "^5.0.1",
 		"body-parser": "^1.19.0",
+		"concurrently": "^6.0.2",
 		"cookie-parser": "^1.4.5",
 		"cors": "^2.8.5",
 		"csurf": "^1.11.0",
