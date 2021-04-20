@@ -128,10 +128,8 @@ export const logout_get = (req, res) => {
 };
 
 export const refresh_token = async (req, res) => {
-	console.log(req);
 	// try {
 	// 	if (!refreshToken) return res.sendStatus(401);
-
 	// 	jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET, (err, user) => {
 	// 		if (err) return res.sendStatus(403);
 	// 		const accessToken = generateAccessToken({ id: user._id });
@@ -139,17 +137,14 @@ export const refresh_token = async (req, res) => {
 	// 			{ id: user._id },
 	// 			process.env.JWT_REFRESH_TOKEN_SECRET
 	// 		);
-
 	// 		res.cookie('access_token', accessToken, {
 	// 			httpOnly: true,
 	// 			maxAge: 259200000,
 	// 		});
-
 	// 		res.cookie('refresh_token', refreshToken, {
 	// 			httpOnly: true,
 	// 			maxAge: 267840000,
 	// 		});
-
 	// 		res.status(201).send({ user: user._id, accessToken, refreshToken });
 	// 	});
 	// } catch (error) {
@@ -166,4 +161,13 @@ export const refresh_token = async (req, res) => {
 
 export const user_get = (req, res) => {
 	res.send('get user details');
+};
+
+const getExpirationDate = (jwtToken) => {
+	if (!jwtToken) return null;
+
+	const jwt = JSON.parse(atob(jwtToken.split('.')[1]));
+
+	// multiply by 1000 to convert seconds into milliseconds
+	return (jwt && jwt.exp && jwt.exp * 1000) || null;
 };
